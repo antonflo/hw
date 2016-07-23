@@ -17,3 +17,5 @@
 /.*
 !.gitignore
 /web/vendor/
+/web/dist/partials.js
+/node_modules

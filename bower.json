@@ -2,6 +2,9 @@
   "name": "flo/hw",
   "private": true,
   "dependencies": {
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "angular-bootstrap": "^2.0.0",
+    "angular-formly": "^8.2.1",
+    "angular-formly-templates-bootstrap": "^6.3.2"
   }
 }
