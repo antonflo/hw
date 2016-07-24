@@ -6,11 +6,11 @@ var gulp = require('gulp'),
 ;
 
 var libs = [
-    'web/vendor/angular-bootstrap/ui-bootstrap-tpls.js',
     'web/vendor/angular-bootstrap/ui-bootstrap.js',
-    'web/vendor/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js',
+    'web/vendor/angular-bootstrap/ui-bootstrap-tpls.js',
+    'web/vendor/api-check/dist/api-check.js',
     'web/vendor/angular-formly/dist/formly.js',
-    'web/vendor/api-check/dist/api-check.js'
+    'web/vendor/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js'
 ];
 
 gulp.task('lib', function () {
@@ -22,7 +22,7 @@ gulp.task('lib', function () {
 
 gulp.task('partials', function () {
     return gulp.src('app/Resources/public/**/*.html')
-        .pipe(templateCache('partials.js'), {module: 'app', root: ''})
+        .pipe(templateCache('partials.js', {module: 'app', root: ''}))
         .pipe(gulp.dest('web/dist'));
 });
 gulp.task('js', ['partials'], function () {
