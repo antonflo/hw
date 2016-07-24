@@ -1,0 +1,66 @@
+{% extends 'layout.html.twig' %}
+{% block title 'Address Book' %}
+
+{% block content %}
+
+    <div ng-controller="AddressBookCtrl as aCtrl">
+
+        <div class="row">
+            <div class="col-lg-6">
+                <h1 class="main-title">Address Book</h1>
+            </div>
+            <div class="col-lg-6">
+                <p class="text-right">
+                    <button class="btn btn-default" ng-click="aCtrl.create()">
+                        <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                        New Address
+                    </button>
+                </p>
+            </div>
+        </div>
+
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Label</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Street Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>ZIP</th>
+                    <th>Country</th>
+                    <th>Default?</th>
+                </tr>
+            </thead>
+            <tbody ng-cloak>
+                <tr ng-repeat="r in aCtrl.data" ng-dblclick="aCtrl.edit(r)" class="editable">
+                    <td ng-bind="r.label"></td>
+                    <td>
+                        <span ng-bind="r.firstName"></span>
+                        <span ng-bind="r.lastName"></span>
+                    </td>
+                    <td ng-bind="r.phone"></td>
+                    <td>
+                        <div ng-bind="r.street1"></div>
+                        <div ng-bind="r.street2" ng-show="r.street2"></div>
+                    </td>
+                    <td ng-bind="r.city"></td>
+                    <td ng-bind="r.state"></td>
+                    <td ng-bind="r.zip"></td>
+                    <td ng-bind="r.country"></td>
+                    <td>
+                        <span ng-show="r.isDefault">Yes</span>
+                        <span ng-show="!r.isDefault">
+                            <button class="btn btn-sm btn-primary" ng-click="aCtrl.setDefault(r)">Set</button>
+                        </span>
+                    </td>
+                </tr>
+                <tr ng-show="aCtrl.data.length == 0">
+                    <td colspan="9" class="text-center">No addresses available.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p ng-show="aCtrl.data.length > 0">Double-click to edit an element in the row.</p>
+    </div>
+{% endblock %}

@@ -4,6 +4,17 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.address.repository:
+        class: Doctrine\ORM\EntityRepository
+        factory: ["@doctrine", getRepository]
+        arguments:
+            - AppBundle\Entity\Address
+
+    app.address.persister:
+        class: AppBundle\Service\Address\Persister
+        arguments: ["@doctrine.orm.entity_manager"]
+
+    kernel.listener.json_request_listener:
+        class: AppBundle\EventListener\JsonRequestListener
+        tags:
+            - {name: kernel.event_listener, event: kernel.request, method: onKernelRequest}

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<skipper version="3.2.6.1309" mvc="Symfony2" orm="Doctrine2" name="hw" uuid="68781321-f5e2-4c7c-8fcb-cd280b8eeb97">
+  <module name="\AppBundle" local-name="AppBundle" namespace="\AppBundle\Entity\" local-namespace="AppBundle\Entity\" export-format="Doctrine2Yml" export-path="src/AppBundle/Resources/config/doctrine" uuid="4d24cd16-eb6d-4f19-8a32-9df29ceaaa9b">
+    <entity name="\AppBundle\Entity\Address" local-name="Address" namespace="\AppBundle\Entity\" uuid="7a70a6a5-66c9-45ac-91aa-24edd092d5dd">
+      <field name="id" type="integer" required="true" unique="true" primary="true" auto-increment="true" uuid="a8eb515d-eead-468d-b15f-b7df06946288"/>
+      <field name="label" type="string" required="true" uuid="29dddaef-640e-4ba8-aedf-4a88016e54c4"/>
+      <field name="firstName" type="string" required="true" uuid="92596a98-b330-49e3-9030-f7cc4d5cd39a"/>
+      <field name="lastName" type="string" required="true" uuid="72b85f2b-61dd-473f-8524-b931883896ee"/>
+    </entity>
+    <orm-attributes>
+      <attribute name="file-suffix">.orm</attribute>
+      <attribute name="filename-format">entity-name-only</attribute>
+    </orm-attributes>
+  </module>
+  <visual-data>
+    <entity uuid="7a70a6a5-66c9-45ac-91aa-24edd092d5dd" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="19" position-y="22" size-x="0" size-x2="99" size-y="0" size-y2="73"/>
+    <module uuid="4d24cd16-eb6d-4f19-8a32-9df29ceaaa9b" bg-color="#E7F5FD" position-x="61" position-y="72" size-x="11" size-x2="230" size-y="22" size-y2="193"/>
+    <project uuid="68781321-f5e2-4c7c-8fcb-cd280b8eeb97" size-x="0" size-x2="331" size-y="0" size-y2="285"/>
+  </visual-data>
+</skipper>

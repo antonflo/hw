@@ -1,5 +1,36 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+root:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: address-book
+
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+address-book:
+    path: /address-book
+    defaults: {_controller: AppBundle:AddressBook:list}
+
+address-book-data:
+    path: /address-book/data
+    defaults: {_controller: AppBundle:AddressBook:data, _format: json}
+    options:
+        expose: true
+
+address-create:
+    path: /address/create
+    defaults: {_controller: AppBundle:AddressBook:create, _format: json}
+    options:
+        expose: true
+
+address-update:
+    path: /address/update
+    defaults: {_controller: AppBundle:AddressBook:update, _format: json}
+    options:
+        expose: true
+
+address-delete:
+    path: /address/delete
+    defaults: {_controller: AppBundle:AddressBook:delete, _format: json}
+    options:
+        expose: true

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title '' %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% block stylesheets %}
+            {% stylesheets
+                'vendor/bootstrap/dist/css/bootstrap.min.css'
+                'vendor/bootstrap/dist/css/bootstrap-theme.min.css'
+                '../app/Resources/public/css/main.css'
+                filter='cssrewrite' output='css/compiled/app.css' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}
+        {% if (app.environment == 'dev') %}
+            <script type="text/javascript" src="{{ asset('vendor/angular/angular.js') }}"></script>
+        {% else %}
+            <script type="text/javascript" src="{{ asset('vendor/angular/angular.min.js') }}"></script>
+        {% endif %}
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+        <script type="text/javascript" src="{{ asset('dist/lib.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('dist/app.min.js') }}"></script>
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="container" class="container">
+            {{ include('nav.html.twig') }}
+            {% block content '' %}
+        </div>
+    </div>
+    <div class="loading-indicator glyphicon glyphicon-refresh" ng-show="loadingIndicator.isLoading"></div>
+    </body>
+</html>

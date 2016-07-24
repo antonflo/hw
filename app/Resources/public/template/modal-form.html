@@ -3,7 +3,12 @@
 </div>
 <form ng-submit="mfCtrl.submit()" name="mfCtrl.form">
     <div class="modal-body">
+        <div class="alert alert-danger" role="alert" ng-show="mfCtrl.errorMessage">
+            <button type="button" class="pull-right btn btn-xs btn-danger glyphicon glyphicon-remove" ng-click="mfCtrl.dismissError()"></button>
+            <div ng-bind="mfCtrl.errorMessage"></div>
+        </div>
 
+        <formly-form model="mfCtrl.formData" fields="mfCtrl.formFields"></formly-form>
     </div>
     <div class="modal-footer">
         <button ng-show="mfCtrl.delete" class="btn btn-danger pull-left" type="button" ng-click="mfCtrl.delete()">Delete</button>

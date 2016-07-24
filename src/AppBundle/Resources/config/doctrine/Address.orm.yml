@@ -1,0 +1,17 @@
+AppBundle\Entity\Address:
+  type: entity
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    label:
+      type: string
+      nullable: false
+    firstName:
+      type: string
+      nullable: false
+    lastName:
+      type: string
+      nullable: false
