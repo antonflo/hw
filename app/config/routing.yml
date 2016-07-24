@@ -34,3 +34,9 @@ address-delete:
     defaults: {_controller: AppBundle:AddressBook:delete, _format: json}
     options:
         expose: true
+
+address-set-default:
+    path: /address/set-default
+    defaults: {_controller: AppBundle:AddressBook:setDefault, _format: json}
+    options:
+        expose: true

@@ -87,6 +87,18 @@ class AddressBookController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function setDefaultAction(Request $request)
+    {
+        $address = $this->lookup($request);
+        $address->isDefault = true;
+        $this->persister->update($address);
+        return $this->getPayload();
+    }
+
+    /**
      * @return JsonResponse
      */
     private function getPayload()

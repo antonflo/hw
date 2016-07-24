@@ -5,7 +5,7 @@
         .module('app')
         .controller('ModalFormCtrl', ModalFormCtrl);
 
-    function ModalFormCtrl($uibModalInstance, $http, formDefinition, modalOptions, deferred) {
+    function ModalFormCtrl($uibModalInstance, $http, $q, formDefinition, modalOptions, deferred) {
         var vm = this;
 
         vm.formData = formDefinition.data;
@@ -65,8 +65,7 @@
             } else {
                 vm.errorMessage = 'HTTP ' + response.status + ' ' + response.statusText;
             }
-            deferred.reject(response);
-            return deferred.promise;
+            return $q.reject(response);
         }
 
         function dismissError() {

@@ -1,7 +1,7 @@
 <div class="modal-header">
     <h4 class="modal-title" ng-bind="mfCtrl.title"></h4>
 </div>
-<form ng-submit="mfCtrl.submit()" name="mfCtrl.form">
+<form ng-submit="mfCtrl.submit()" name="mfCtrl.form" class="form-condensed">
     <div class="modal-body">
         <div class="alert alert-danger" role="alert" ng-show="mfCtrl.errorMessage">
             <button type="button" class="pull-right btn btn-xs btn-danger glyphicon glyphicon-remove" ng-click="mfCtrl.dismissError()"></button>

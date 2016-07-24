@@ -30,7 +30,7 @@
                     <th>State</th>
                     <th>ZIP</th>
                     <th>Country</th>
-                    <th>Default?</th>
+                    <th colspan="2">Default</th>
                 </tr>
             </thead>
             <tbody ng-cloak>
@@ -49,15 +49,15 @@
                     <td ng-bind="r.state"></td>
                     <td ng-bind="r.zip"></td>
                     <td ng-bind="r.country"></td>
+                    <td ng-bind="r.isDefault ? 'Yes' : 'No'"></td>
                     <td>
-                        <span ng-show="r.isDefault">Yes</span>
                         <span ng-show="!r.isDefault">
-                            <button class="btn btn-sm btn-primary" ng-click="aCtrl.setDefault(r)">Set</button>
+                            <button class="btn btn-sm btn-primary" ng-click="aCtrl.setDefault(r)">Set Default</button>
                         </span>
                     </td>
                 </tr>
                 <tr ng-show="aCtrl.data.length == 0">
-                    <td colspan="9" class="text-center">No addresses available.</td>
+                    <td colspan="10" class="text-center">No addresses available.</td>
                 </tr>
             </tbody>
         </table>

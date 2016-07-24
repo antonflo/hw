@@ -15,3 +15,27 @@ AppBundle\Entity\Address:
     lastName:
       type: string
       nullable: false
+    phone:
+      type: string
+      nullable: false
+    street1:
+      type: string
+      nullable: false
+    street2:
+      type: string
+      nullable: true
+    city:
+      type: string
+      nullable: false
+    state:
+      type: string
+      nullable: true
+    zip:
+      type: string
+      nullable: true
+    country:
+      type: string
+      nullable: false
+    isDefault:
+      type: boolean
+      nullable: false

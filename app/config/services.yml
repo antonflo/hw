@@ -12,7 +12,7 @@ services:
 
     app.address.persister:
         class: AppBundle\Service\Address\Persister
-        arguments: ["@doctrine.orm.entity_manager"]
+        arguments: ["@doctrine.orm.entity_manager", "@app.address.repository"]
 
     kernel.listener.json_request_listener:
         class: AppBundle\EventListener\JsonRequestListener
